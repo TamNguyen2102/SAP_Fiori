@@ -1,0 +1,20 @@
+{
+  "name": "SAP_Fiori",
+  "version": "1.0.0",
+  "description": "This repo contains all practice and some project of SAP Fiori",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TamNguyen2102/SAP_Fiori.git"
+  },
+  "keywords": [],
+  "author": "TamNguyen2102",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TamNguyen2102/SAP_Fiori/issues"
+  },
+  "homepage": "https://github.com/TamNguyen2102/SAP_Fiori#readme"
+}
