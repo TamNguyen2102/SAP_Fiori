@@ -1,18 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Quickstart Tutorial</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
       id="sap-ui-bootstrap"
       src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
       data-sap-ui-theme="sap_belize"
-      data-sap-ui-libs="sap.m, sap.ui.layout, sap.tnt"
-      data-sap-ui-resourceroots='{"Quickstart": "./"}'
-      data-sap-ui-onInit="module:Quickstart/index"
       data-sap-ui-compatVersion="edge"
       data-sap-ui-async="true"
+      data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
+      data-sap-ui-resourceroots='{
+			"sap.ui.demo.walkthrough": "./"
+		}'
     ></script>
+    <title>UI5</title>
   </head>
-  <body class="sapUiBody" id="content"></body>
+  <body class="sapUiBody" id="content">
+    <div
+      data-sap-ui-component
+      data-name="sap.ui.demo.walkthrough"
+      data-id="container"
+      data-settings='{"id" : "walkthrough"}'
+    ></div>
+  </body>
 </html>
