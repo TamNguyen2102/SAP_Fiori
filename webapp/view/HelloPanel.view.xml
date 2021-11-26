@@ -11,6 +11,7 @@
         <Button
             id="helloDialogButton"
             text="{i18n>openDialogButtonText}"
+            icon="sap-icon://world"
             press=".onOpenDialog"
             class="sapUiSmallMarginEnd"
         />   
@@ -21,7 +22,7 @@
         <Input
             value="{/recipient/name}"
             description="{/recipient/name}"
-            width="70%"
+            width="50%"
             valueLiveUpdate="true"
         />
 

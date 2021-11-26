@@ -12,43 +12,15 @@
     },
     "ach": "ach",
     "dataSources": {
-      "data source for analytical request": {
-        "uri": "service root of analytical request",
-        "type": "OData",
-        "settings": {
-          "annotations": ["annotation data source"],
-          "odataVersion": "2.0"
-        }
-      },
-      "<annotation data source>": {
-        "uri": "location of annotation file",
-        "type": "ODataAnnotation",
-        "settings": {
-          "localUri": "location of local annotation file"
-        }
-      },
-      "PathPersistenceServiceRoot": {
-        "uri": "URI of path persistence",
-        "type": "OData",
-        "settings": {
-          "odataVersion": "2.0"
-        }
-      },
-      "SmartBusiness": {
-        "uri": "/sap/hba/r/sb/core/odata/runtime/SMART_BUSINESS.xsodata",
-        "type": "OData",
-        "settings": {
-          "odataVersion": "2.0"
-        }
-      },
-      "LogicalSystem": {
-        "uri": "/sap/hba/apps/wca/dso/s/odata/wca.xsodata",
+      "invoiceRemote": {
+        "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/",
         "type": "OData",
         "settings": {
           "odataVersion": "2.0"
         }
       }
     },
+
     "AnalyticalConfigurationLocation": {
       "uri": "./config/analyticalConfiguration.json",
       "type": "JSON"
@@ -105,10 +77,45 @@
           "supportedLocales": [""],
           "fallbackLocale": ""
         }
+      },
+      "invoice": {
+        "dataSource": "invoiceRemote"
       }
     },
+
     "config": {
       "sapFiori2Adaptation": true
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "sap.ui.demo.walkthrough.view",
+        "controlId": "app",
+        "controlAggregation": "pages"
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "overview",
+          "target": "overview"
+        },
+        {
+          "pattern": "detail",
+          "name": "detail",
+          "target": "detail"
+        }
+      ],
+      "targets": {
+        "overview": {
+          "viewId": "overview",
+          "viewName": "Overview"
+        },
+        "detail": {
+          "viewId": "detail",
+          "viewName": "Detail"
+        }
+      }
     }
   }
 }
