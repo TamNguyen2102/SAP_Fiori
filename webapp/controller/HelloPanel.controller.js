@@ -1,6 +1,11 @@
 sap.ui.define(
-  ["sap/ui/core/mvc/Controller", "sap/m/MessageToast"],
-  function (Controller, MessageToast) {
+  [
+    "sap/ui/core/mvc/Controller",
+    "sap/m/MessageToast",
+    "sap/ui/demo/walkthrough/common/Utils",
+    "sap/ui/model/json/JSONModel",
+  ],
+  function (Controller, MessageToast, Utils, JSONModel) {
     "use strict";
 
     return Controller.extend("sap.ui.demo.walkthrough.controller.HelloPanel", {
@@ -11,10 +16,6 @@ sap.ui.define(
           .getProperty("/recipient/name");
         var sMsg = oBundle.getText("helloMsg", [sRecipient]);
         MessageToast.show(sMsg);
-      },
-
-      onOpenDialog: function () {
-        this.getOwnerComponent().openHelloDialog();
       },
     });
   }

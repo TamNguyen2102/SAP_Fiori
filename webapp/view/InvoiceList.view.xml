@@ -1,79 +1,57 @@
-<mvc:View
-    controllerName="sap.ui.demo.walkthrough.controller.InvoiceList"
-   xmlns="sap.m"
-   xmlns:mvc="sap.ui.core.mvc">
-   <Table
-    id="invoiceList"
-    headerText="{i18n>invoiceListTitle}"
-    class="sapUiResponsiveMargin"
-    width="auto"
-    items="{
-        path: 'invoice>/Invoices',
+<mvc:View controllerName="sap.ui.demo.walkthrough.controller.InvoiceList" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+    <Table id="invoiceList" headerText="{i18n>invoiceListTitle}" class="sapUiResponsiveMargin" width="auto" items="{
+        path: 'invoice>/Invoices',      
         sorter: {
             path: 'ShipperName',
             group:  true
-        }
-    }" >
+        } 
+    }" updateFinished=".onSummary">
         <headerToolbar>
-          <Toolbar>
-            <Title text="{i18n>invoiceListTitle}"/>
-            <ToolbarSpacer/>
-            <SearchField width="50%" search=".onFilterInvoice"/>
-          </Toolbar>
+            <Toolbar>
+                <Title text="{i18n>invoiceListTitle}, Summary: {view>/summary}" />
+                <Button text="{i18n>openDialogButtonText}" icon="sap-icon://world" press=".onOpenDialog" class="sapUiSmallMarginEnd sapUiVisibleOnlyOnDesktop" />
+                <ToolbarSpacer />
+                <SearchField width="50%" search=".onFilterInvoice" />
+            </Toolbar>
         </headerToolbar>
         <columns>
-            <Column hAlign="End"
-                minScreenWidth="Small"
-                demandPopin="true"
-                width="5em"
-            >
-                <Text text="{i18n>columnQuantity}"/>
+            <Column hAlign="End" minScreenWidth="Small" demandPopin="true" width="5em">
+                <Text text="{i18n>columnQuantity}" />
             </Column>
-            <Column >
-                <Text text="{i18n>columnName}"/>
+            <Column>
+                <Text text="{i18n>columnName}" />
             </Column>
-            <Column minScreenWidth="Small"
-                    demandPopin="true"
-            >
-                <Text text="{i18n>columnStatus}"/>   
+            <Column minScreenWidth="Small" demandPopin="true">
+                <Text text="{i18n>columnStatus}" />
             </Column>
-            <Column 
-                minScreenWidth="Small"
-                demandPopin="true"
-            >
-                <Text text="{i18n>columnSupplier}"/>
+            <Column minScreenWidth="Small" demandPopin="true">
+                <Text text="{i18n>columnSupplier}" />
             </Column>
             <Column hAlign="End">
                 <Text text="{i18n>columnPrice}"></Text>
             </Column>
         </columns>
         <items>
-            <ColumnListItem
-                type="Navigation"
-                press=".onPress"
-            >
+            <ColumnListItem type="Navigation" press=".onPress">
                 <cells>
-                    <ObjectNumber number="{invoice>Quantity}" emphasized="false"/>
-					<ObjectIdentifier title="{invoice>ProductName}"/>
-					<Text text="{
+                    <ObjectNumber number="{invoice>Quantity}" emphasized="false" />
+                    <ObjectIdentifier title="{invoice>ProductName}" />
+                    <Text text="{
 						path: 'invoice>Status',
 						formatter: '.formatter.statusText'
-					}"/>
-					<Text text="{invoice>ShipperName}"/>
-					<ObjectNumber
-						number="{
+					}" />
+                    <Text text="{invoice>ShipperName}" />
+                    <ObjectNumber number="{
 							parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
 							type: 'sap.ui.model.type.Currency',
 							formatOptions: {
 								showMeasure: false
 							}
-						}"
-						unit="{view>/currency}"
-						state="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }"/>
+						}" unit="{view>/currency}" state="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }" />
                 </cells>
-                
-            </ColumnListItem>    
+
+            </ColumnListItem>
         </items>
- 
+
     </Table>
 </mvc:View>

@@ -1,29 +1,15 @@
-<mvc:View
-    controllerName="sap.ui.demo.walkthrough.controller.Detail"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns="sap.m"
->
-    <Page title="{i18n>detailPageTitle}"
-        showNavButton="true"
-        navButtonPress=".onNavBack"
-        >
-        <ObjectHeader
-            responsive="true"
-            fullScreenOptimized="true"
-            number="{
+<mvc:View controllerName="sap.ui.demo.walkthrough.controller.Detail" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+    <Page title="{i18n>detailPageTitle}" showNavButton="true" navButtonPress=".onNavBack">
+        <ObjectHeader responsive="true" fullScreenOptimized="true" number="{
                 parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
 				type: 'sap.ui.model.type.Currency',
 				formatOptions: {
 					showMeasure: false
 				}
-            }"
-            numberUnit="{view>/currency}"
-            intro="{invoice>ShipperName}"
-            title="{invoice>ProductName}"
-        >
+            }" numberUnit="{view>/currency}" intro="{invoice>ShipperName}" title="{invoice>ProductName}">
             <attributes>
-				<ObjectAttribute title="{i18n>quantityTitle}" text="{invoice>Quantity}"></ObjectAttribute>
-				<ObjectAttribute title="{i18n>dateTitle}" text="{
+                <ObjectAttribute title="{i18n>quantityTitle}" text="{invoice>Quantity}"></ObjectAttribute>
+                <ObjectAttribute title="{i18n>dateTitle}" text="{
 					path: 'invoice>ShippedDate',
 					type: 'sap.ui.model.type.Date',
 					formatOptions: {
@@ -32,10 +18,12 @@
 						pattern: 'yyyy-MM-ddTHH:mm:ss'
 					  }
 					}
-				  }"/>
-			</attributes>
+				  }" />
+            </attributes>
 
-            </ObjectHeader>
-            
+        </ObjectHeader>
+        <content>
+            <Text text="Total = {= ${invoice>Quantity} * ${invoice>ExtendedPrice}}" class="sapUiMediumMargin" />
+        </content>
     </Page>
 </mvc:View>

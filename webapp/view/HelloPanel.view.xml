@@ -1,36 +1,11 @@
-<mvc:View
-	controllerName="sap.ui.demo.walkthrough.controller.HelloPanel"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns="sap.m"
->
-    <Panel headerText="{i18n>helloPanelTitle}"
-        class="sapUiSmallMargin"
-        width="auto"
-        expandable="{device>system>phone}"
-        expanded="{= !${device>system>phone}}"
-        >
+<mvc:View controllerName="sap.ui.demo.walkthrough.controller.HelloPanel" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+    <Panel headerText="{i18n>helloPanelTitle}" class="sapUiSmallMargin" width="auto" expandable="{device>system>phone}" expanded="{= !${device>system>phone}}">
         <content>
-        <Button
-            id="helloDialogButton"
-            text="{i18n>openDialogButtonText}"
-            icon="sap-icon://world"
-            press=".onOpenDialog"
-            class="sapUiSmallMarginEnd sapUiVisibleOnlyOnDesktop"
-        />   
-        <Button text="{i18n>buttonLabel}"
-            press=".onShowHello"
-            class="myCustomButton"
-        />
-        <Input
-            value="{/recipient/name}"
-            description="{/recipient/name}"
-            width="50%"
-            valueLiveUpdate="true"
-        />
+            <Button id="helloDialogButton" text="{i18n>openDialogButtonText}" icon="sap-icon://world" class="sapUiSmallMarginEnd sapUiVisibleOnlyOnDesktop" />
+            <Button text="{i18n>buttonLabel}" press=".onShowHello" class="myCustomButton" />
+            <Input value="{/recipient/name}" description="{/recipient/name}" width="50%" valueLiveUpdate="true" />
 
-        <FormattedText
-                htmlText="Hello {/recipient/name}"
-                class="sapUiSmallMargin sapThemeHighlight myCustomText"/>
-        </content> 
+            <FormattedText htmlText="Hello {/recipient/name}" class="sapUiSmallMargin sapThemeHighlight myCustomText" />
+        </content>
     </Panel>
 </mvc:View>
